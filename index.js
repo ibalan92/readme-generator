@@ -56,19 +56,37 @@ const questions = [
 
 ];
 
-// function to write README file
-function writeToFile(fileName, data) {
-    inquirer.prompt(questions)
+inquirer.prompt(questions)
     .then((data) =>{
-        
+        const { username, email, title, description, licenses , install, test, info, contributing } = data;
+        fs.writeFile('Readme.md',
+            (`# ${title}
 
-    })
-}
+## Table of Contents
 
-// function to initialize program
-function init() {
+[Description](#description)<br>
+[License](#license)<br>
+[Installation](#installation)<br>
+[Testing](#testing)<br>
+[Info](#info)<br>
+[Contributing](#contributing)<br>
+[Questions](#questions)<br>
 
-}
-
-// function call to initialize program
-init();
+## Description 
+${description}
+## License 
+This project is licensed under the ${licenses}
+## Installation 
+To install dependencies please run: ${install}
+## Testing 
+To test please run ${test}
+## Info 
+${info}.
+## Contributing
+${contributing}.
+## Questions
+ If you have any questions, open an issue or contact me at ${email}. You can find the rest of my work at https://github.com/${username}`),
+        (err) => err ? console.error(err) : console.log('README successfully generated')
+                )
+            });
+            
