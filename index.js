@@ -79,7 +79,7 @@ This project is licensed under the ${licenses}
 To install dependencies please run: ${install}
 ## Testing 
 To test please run ${test}
-## Info 
+## Usage 
 ${info}.
 ## Contributing
 ${contributing}.
